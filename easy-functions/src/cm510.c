@@ -1,7 +1,7 @@
 /**
  *  @file
- *  @author  Matthew Paulishen <ticiane1@uga.edu>
- *  @version v2012.02.17.1145
+ *  @author  Matthew Paulishen
+ *  @version v2013.03.25.2055
  *
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  @section LICENSE

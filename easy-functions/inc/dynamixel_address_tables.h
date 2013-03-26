@@ -4,7 +4,8 @@
  *******************************************************************************
  *  A header file of questionable quality containing the address tables of
  *    several Dynamixel devices.  It should work with the AX-12/18, AX-S1,
- *    AX-S20, HaViMo2, Jon Hylands' FootPressureSensor kit, MX-28, and CM-730.
+ *    AX-S20, HaViMo2, Jon Hylands' FootPressureSensor kit, MX-28, IR Sensor 
+ *    array, and CM-730.
  *  
  *******************************************************************************
  *  LEGAL STUFF
@@ -17,7 +18,7 @@
  *      http://www.robotis.com
  *  
  *  
- *  Copyright (c) 2011, 2012 Matthew Paulishen. All rights reserved.
+ *  Copyright (c) 2011, 2012, 2013 Matthew Paulishen. All rights reserved.
  *  
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -224,13 +225,15 @@ enum{
 
 // Default model numbers
 #define MODEL_AX12                      12
+#define MODEL_AX12W                     300
 #define MODEL_AX18                      18
 #define MODEL_AXS1                      13
 #define MODEL_AXS20                     212
-#define MODEL_JHFPS                     6711
-#define MODEL_HaViMo2                   80      // Actual Model number unknown
+#define MODEL_JHFPS                     17163	// 0x6711
+#define MODEL_HaViMo2                   0
 //#define MODEL_CM730                     ?
 #define MODEL_MX28                      29
+#define MODEL_IRSA                      330     // 0x014A
 
 
 
@@ -246,6 +249,65 @@ enum{
 //#define P_REGISTERED_INSTRUCTION        44
 
 
+
+// Robotis' IR Sensor Array
+enum{
+    IRSA_MODEL_NUMBER_L               = 0,
+    IRSA_MODEL_NUMBER_H               = 1,
+    IRSA_FIRMWARE_VERSION             = 2,
+    IRSA_ID                           = 3,
+    IRSA_BAUD_RATE                    = 4,
+    IRSA_RETURN_DELAY_TIME            = 5,
+    IRSA_ETH_L_1                      = 6,
+    IRSA_ETH_H_1                      = 7,
+    IRSA_ETH_L_2                      = 8,
+    IRSA_ETH_H_2                      = 9,
+    IRSA_ETH_L_3                      = 10,
+    IRSA_ETH_H_3                      = 11,
+    IRSA_ETH_L_4                      = 12,
+    IRSA_ETH_H_4                      = 13,
+    IRSA_ETH_L_5                      = 14,
+    IRSA_ETH_H_5                      = 15,
+    IRSA_STATUS_RETURN_LEVEL          = 16,
+    IRSA_ETH_L_6                      = 17,
+    IRSA_ETH_H_6                      = 18,
+    IRSA_ETH_L_7                      = 20,
+    IRSA_ETH_H_7                      = 21,
+    IRSA_FD_L_1                       = 24,
+    IRSA_FD_H_1                       = 25,
+    IRSA_FD_L_2                       = 26,
+    IRSA_FD_H_2                       = 27,
+    IRSA_FD_L_3                       = 28,
+    IRSA_FD_H_3                       = 29,
+    IRSA_FD_L_4                       = 30,
+    IRSA_FD_H_4                       = 31,
+    IRSA_FD_L_5                       = 32,
+    IRSA_FD_H_5                       = 33,
+    IRSA_FD_L_6                       = 34,
+    IRSA_FD_H_6                       = 35,
+    IRSA_FD_L_7                       = 36,
+    IRSA_FD_H_7                       = 37,
+    IRSA_BUZZ_NOTE                    = 40,
+    IRSA_BUZZ_TIME                    = 41,
+    IRSA_AUTO_TH                      = 42,
+    IRSA_OBS_DET                      = 43,
+    IRSA_REGISTERED_INSTRUCTION       = 44,
+    IRSA_LOCK                         = 47,
+    IRSA_TH_L_1                       = 48,
+    IRSA_TH_H_1                       = 49,
+    IRSA_TH_L_2                       = 50,
+    IRSA_TH_H_2                       = 51,
+    IRSA_TH_L_3                       = 52,
+    IRSA_TH_H_3                       = 53,
+    IRSA_TH_L_4                       = 54,
+    IRSA_TH_H_4                       = 55,
+    IRSA_TH_L_5                       = 56,
+    IRSA_TH_H_5                       = 57,
+    IRSA_TH_L_6                       = 58,
+    IRSA_TH_H_6                       = 59,
+    IRSA_TH_L_7                       = 60,
+    IRSA_TH_H_7                       = 61
+};
 
 // John Hyland's FSR FOOT PRESSURE SENSOR BOARD
 enum{
@@ -267,39 +329,7 @@ enum{
     JHFPS_REAR_OUTSIDE_H              = 33
 };
 
-
-
-// HaViMo2
-#define HaViMo2_ID                      100
-typedef enum HaViMo2_Color_e {
-    Unknown                           = 0,
-    Black                             = 0,
-    Ball                              = 1,
-    Teal                              = 1,
-    Field                             = 2,
-    Red                               = 2,
-    MyGoal                            = 3,
-    Green                             = 3,
-    OppGoal                           = 4,
-    Purple                            = 4,
-    Robot                             = 5,
-    White                             = 5,
-    Cyan                              = 6,
-    Magenta                           = 7
-} HaViMo2_Color_t;
-
-typedef struct HaViMo2_Region_s {
-    uint8_t     Index, Color;
-    uint16_t    NumPix;
-    uint32_t    SumX, SumY;
-    uint8_t     MaxX, MinX, MaxY, MinY;
-} HaViMo2_Region_t;
-
-typedef struct HaViMo2_RegionBuffer_s {
-    uint8_t             valid;
-    HaViMo2_Region_t    rb[15];
-} HaViMo2_Region_Buffer_t;
-
+#include <HaViMo2.h>
 
 // AX-12+/18F address table
 enum{

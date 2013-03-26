@@ -1,7 +1,7 @@
 /**
  *  @file
- *  @author  Matthew Paulishen <ticiane1@uga.edu>
- *  @version v2012.02.17.1145
+ *  @author  Matthew Paulishen
+ *  @version v2013.03.25.2055
  *
  *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  *  @section LICENSE
@@ -11,7 +11,7 @@
  *      <http://www.robotis.com>
  *
  *
- *  Copyright (c) 2011, 2012 Matthew Paulishen. All rights reserved.
+ *  Copyright (c) 2011, 2012, 2013 Matthew Paulishen. All rights reserved.
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -506,7 +506,7 @@ uint16_t zgb_rx_data(void);
 // CM-530 Helper functions - NaN
 //##############################################################################
 //##############################################################################
-typedef enum Button_e {
+typedef enum {
     UP                                = 0,
     DOWN                              = 1,
     LEFT                              = 2,
@@ -514,7 +514,7 @@ typedef enum Button_e {
     START                             = 4,
     MIC                               = 5
 } Button_t;
-typedef enum LED_e {
+typedef enum {
     POWER                             = 0,
     MANAGE                            = 1,
     PROGRAM                           = 2,
@@ -523,7 +523,7 @@ typedef enum LED_e {
     RXD                               = 5,
     AUX                               = 6
 } LED_t;
-typedef enum Motor_e {
+typedef enum {
     MOTOR1P                           = 0,
     MOTOR1M                           = 1,
     MOTOR2P                           = 2,
@@ -537,7 +537,7 @@ typedef enum Motor_e {
     MOTOR6P                           = 10,
     MOTOR6M                           = 11
 } Motor_t;
-typedef enum EPortD_e {
+typedef enum {
     EPORT11                           = 0,
     EPORT15                           = 1,
     EPORT21                           = 2,
@@ -551,7 +551,7 @@ typedef enum EPortD_e {
     EPORT61                           = 10,
     EPORT65                           = 11
 } EPortD_t;
-typedef enum EPortA_e {
+typedef enum {
     EPORT1A                           = 0,
     EPORT2A                           = 1,
     EPORT3A                           = 2,
@@ -560,7 +560,7 @@ typedef enum EPortA_e {
     EPORT6A                           = 5,
     VBUS                              = 6
 } EPortA_t;
-typedef enum buzzed_note_e {
+typedef enum {
 // Twelve-Tone Equal Temperment (12-TET)
 //   1 octave is a doubling of frequency and equal to 1200 cents
 //   1 octave => 12 equally distributed notes (12 intervals/semitones)
